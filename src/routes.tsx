@@ -1,23 +1,24 @@
 import { Route, Routes } from 'react-router-dom';
+import Home from './views/home';
+import PacientesCreate from './views/pacientes/create';
+import ProntuariosCreate from './views/prontuarios/create';
+import Pacientes from './views/pacientes';
+import Prontuarios from './views/prontuarios';
+import Agendamentos from './views/agendamentos';
+import Login from './views/login';
 
 export function AppRoutes() {
     return (
         <Routes>
-                <Route path="/" element={<Home/>} />
+            <Route path="/home" element={<Home />} />
+            <Route path="/pacientes" element={<Pacientes />} />
+            <Route path="/pacientes/novo" element={<PacientesCreate />} />
+            <Route path="/prontuarios" element={<Prontuarios />} />
+            <Route path="/prontuarios/novo" element={<ProntuariosCreate />} />
+            <Route path="/agendamentos" element={<Agendamentos />} />
+            <Route path='/login' element={<Login />} />
         </Routes>
     );
-}
-
-function Home() {
-    return <h1>Welcome to the Home page!</h1>;
-}
-
-function About() {
-    return <h1>About Us</h1>;
-}
-
-function Contact() {
-    return <h1>Contact Us</h1>;
 }
 
 function NotFound() {
