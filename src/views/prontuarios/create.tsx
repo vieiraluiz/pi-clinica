@@ -59,7 +59,7 @@ export default function ProntuariosCreate() {
 
     useEffect(() => {
         if (id) {
-            axios.get(`http://localhost:8000/api/prontuarios/${id}`).then(response => {
+            axios.get(`https://back-91wd3u7j4-vieiraluizs-projects.vercel.app/api/api/prontuarios/${id}`).then(response => {
                 setProntuarioData(response.data.prontuario);
                 setSelectedPaciente(response.data.prontuario.id_paciente.toString());
                 setDeambulando(response.data.prontuario.deambulando === 1);
@@ -75,7 +75,7 @@ export default function ProntuariosCreate() {
 
     const fetchPacientes = async () => {
         try {
-            const response = await  axios.get('http://localhost:8000/api/pacientes')
+            const response = await  axios.get('https://back-91wd3u7j4-vieiraluizs-projects.vercel.app/api/api/pacientes')
             setPacientes(response.data);
         } catch (error) {
             console.error('Error fetching pacientes:', error);
@@ -98,7 +98,7 @@ export default function ProntuariosCreate() {
         data['cadeira_rodas'] = cadeiraRodas.toString() === 'false' ? '0' : '1';
         console.log(deambulandoApoio);
         if(id){ 
-            axios.put(`http://localhost:8000/api/prontuarios/${id}`, {FormData:data}).then(response => {
+            axios.put(`https://back-91wd3u7j4-vieiraluizs-projects.vercel.app/api/api/prontuarios/${id}`, {FormData:data}).then(response => {
                 navigate('/prontuarios');
             }).catch(error => {
                 console.log(error);
@@ -106,7 +106,7 @@ export default function ProntuariosCreate() {
             });
             return;
         }
-        axios.post('http://localhost:8000/api/prontuarios',{FormData:data}).then(response => {
+        axios.post('https://back-91wd3u7j4-vieiraluizs-projects.vercel.app/api/api/prontuarios',{FormData:data}).then(response => {
         navigate('/pacientes');
     }).catch(error => {
         console.log(error);

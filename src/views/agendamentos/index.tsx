@@ -27,7 +27,7 @@ export default function Agendamentos(){
     const [horaAgendamento, setHoraAgendamento] = useState('')
 
     const getAgendamentos = () =>{
-        axios.get('http://localhost:8000/api/agendamentos').then(response => {
+        axios.get('https://back-91wd3u7j4-vieiraluizs-projects.vercel.app/api/api/agendamentos').then(response => {
             console.log(response.data)
             setAgendamentos(response.data);
         }).catch(error => {
@@ -36,7 +36,7 @@ export default function Agendamentos(){
     }
     const fetchPacientes = async () => {
         try {
-            const response = await  axios.get('http://localhost:8000/api/pacientes')
+            const response = await  axios.get('https://back-91wd3u7j4-vieiraluizs-projects.vercel.app/api/api/pacientes')
             setPacientes(response.data);
         } catch (error) {
             console.error('Error fetching pacientes:', error);
@@ -60,7 +60,7 @@ export default function Agendamentos(){
         setSelectedPaciente(event.target.value);
     };
     const createAgendamento = () => {
-        axios.post('http://localhost:8000/api/agendamentos',{FormData:{
+        axios.post('https://back-91wd3u7j4-vieiraluizs-projects.vercel.app/api/api/agendamentos',{FormData:{
             data: dataAgendamento,hora: horaAgendamento ,id_paciente: selectedPaciente
         }}).then(response => {
             console.log(response.data)

@@ -29,7 +29,7 @@ export default function PacientesCreate() {
 
     useEffect(() => {
         if (id) {
-            axios.get(`http://localhost:8000/api/pacientes/${id}`).then(response => {
+            axios.get(`https://back-91wd3u7j4-vieiraluizs-projects.vercel.app/api/api/pacientes/${id}`).then(response => {
                 setPacienteData(response.data.paciente);
             }).catch(error => {
                 console.log(error);
@@ -46,7 +46,7 @@ export default function PacientesCreate() {
         });
         setLoading(true);
         if(id){
-            axios.put(`http://localhost:8000/api/pacientes/${id}`, { FormData: data }).then(response => {
+            axios.put(`https://back-91wd3u7j4-vieiraluizs-projects.vercel.app/api/api/pacientes/${id}`, { FormData: data }).then(response => {
                 navigate('/pacientes');
             }).catch(error => {
                 console.log(error);
@@ -54,7 +54,7 @@ export default function PacientesCreate() {
             });
             return;
         }
-        axios.post('http://localhost:8000/api/pacientes', { FormData: data }).then(response => {
+        axios.post('https://back-91wd3u7j4-vieiraluizs-projects.vercel.app/api/api/pacientes', { FormData: data }).then(response => {
             navigate('/pacientes');
         }).catch(error => {
             console.log(error);

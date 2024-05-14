@@ -28,7 +28,7 @@ export default function Pacientes() {
     const [searchResults, setSearchResults] = useState<Paciente[]>([]);
 
     const getPacientes = () => {
-        axios.get('http://localhost:8000/api/pacientes').then(response => {
+        axios.get('https://back-91wd3u7j4-vieiraluizs-projects.vercel.app/api/api/pacientes').then(response => {
             setPacientes(response.data);
             setSearchResults(response.data);
         }).catch(error => {
@@ -38,7 +38,7 @@ export default function Pacientes() {
 
     const deletePaciente = (id: number) => {
         if (window.confirm('Tem certeza que deseja excluir este paciente?')) {
-        axios.delete(`http://localhost:8000/api/pacientes/${id}`).then(response => {
+        axios.delete(`https://back-91wd3u7j4-vieiraluizs-projects.vercel.app/api/api/pacientes/${id}`).then(response => {
             getPacientes();
         }).catch(error => {
             console.log(error);

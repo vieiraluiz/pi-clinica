@@ -24,7 +24,7 @@ export default function Home() {
     }, []);
 
     const getData = ()=>{
-        axios.get('http://localhost:8000/api/home').then(response => {
+        axios.get('https://back-91wd3u7j4-vieiraluizs-projects.vercel.app/api/api/home').then(response => {
             console.log(response.data)
             setAgendamentos(response.data[1]);
             setProximoAtendimento(response.data[0]);

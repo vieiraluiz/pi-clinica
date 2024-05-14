@@ -56,7 +56,7 @@ export default function Prontuarios() {
     const [evolucoes, setEvolucoes] = useState<Evolucao[]>([])
 
     const getProntuarios = () => {
-        axios.get('http://localhost:8000/api/prontuarios').then(response => {
+        axios.get('https://back-91wd3u7j4-vieiraluizs-projects.vercel.app/api/api/prontuarios').then(response => {
             console.log(response.data)
             setProntuarios(response.data);
             setSearchResults(response.data);
@@ -65,7 +65,7 @@ export default function Prontuarios() {
         });
     }
     const getEvolucoes = (id:number) => {
-        axios.get(`http://localhost:8000/api/evolucao/${id}`).then(response => {
+        axios.get(`https://back-91wd3u7j4-vieiraluizs-projects.vercel.app/api/api/evolucao/${id}`).then(response => {
             console.log(response.data)
             setEvolucoes(response.data.evolucao);
         }).catch(error => {
@@ -101,7 +101,7 @@ export default function Prontuarios() {
     };
 
     const createEvolucao = () => {
-        axios.post('http://localhost:8000/api/evolucao', {
+        axios.post('https://back-91wd3u7j4-vieiraluizs-projects.vercel.app/api/api/evolucao', {
             FormData: {
                 descricao_evolucao: evolucao, data_atendimento: dataEvolucao, id_prontuario: openModal
             }
