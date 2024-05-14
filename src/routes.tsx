@@ -13,10 +13,13 @@ export function AppRoutes() {
             <Route path="/home" element={<Home />} />
             <Route path="/pacientes" element={<Pacientes />} />
             <Route path="/pacientes/novo" element={<PacientesCreate />} />
+            <Route path="/pacientes/:id/editar" element={<PacientesCreate />} />
             <Route path="/prontuarios" element={<Prontuarios />} />
             <Route path="/prontuarios/novo" element={<ProntuariosCreate />} />
+            <Route path="/prontuarios/:id/editar" element={<ProntuariosCreate />} />
             <Route path="/agendamentos" element={<Agendamentos />} />
             <Route path='/login' element={<Login />} />
+            <Route path='/' element={<Login />} />
         </Routes>
     );
 }

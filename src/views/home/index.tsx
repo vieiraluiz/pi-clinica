@@ -59,7 +59,7 @@ export default function Home() {
                     </TableBody>
                 </Table></TableContainer>
                 <Typography variant="h5"> Proximo atendimento: </Typography>
-                <Typography variant="h6" color={"GrayText"}>{`${proximoAtendimento?.nome_paciente} - ${formatDate(proximoAtendimento?.data!)} ${proximoAtendimento?.hora}`}</Typography>
+             {proximoAtendimento && <Typography variant="h6" color={"GrayText"}>{`${proximoAtendimento?.nome_paciente} - ${formatDate(proximoAtendimento?.data!)} ${proximoAtendimento?.hora}`}</Typography>}
         </Box>
     );
 }

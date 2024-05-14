@@ -29,7 +29,7 @@ function ResponsiveAppBar() {
         navigate(`/${page.toLowerCase()}`);
     };
 
-    if(location.pathname === '/login')return <></>
+    if(location.pathname === '/login' || location.pathname === '/')return <></>
 
     return (
         <AppBar position="static">

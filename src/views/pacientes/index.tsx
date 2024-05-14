@@ -3,6 +3,7 @@ import { Add,Edit,Delete } from "@mui/icons-material";
 import { Box, Button, Typography, TextField, TableContainer, Table, TableHead, TableBody, TableRow, TableCell, Paper, IconButton } from "@mui/material";
 import { NavLink } from "react-router-dom";
 import axios from "axios";
+import { get } from "http";
 
 interface Paciente {
     id: number
@@ -26,13 +27,26 @@ export default function Pacientes() {
     const [searchTerm, setSearchTerm] = useState("");
     const [searchResults, setSearchResults] = useState<Paciente[]>([]);
 
-    useEffect(() => {
+    const getPacientes = () => {
         axios.get('http://localhost:8000/api/pacientes').then(response => {
             setPacientes(response.data);
             setSearchResults(response.data);
         }).catch(error => {
             console.log(error);
         });
+    }
+
+    const deletePaciente = (id: number) => {
+        if (window.confirm('Tem certeza que deseja excluir este paciente?')) {
+        axios.delete(`http://localhost:8000/api/pacientes/${id}`).then(response => {
+            getPacientes();
+        }).catch(error => {
+            console.log(error);
+        }); 
+    }}
+
+    useEffect(() => {
+        getPacientes();
     }, []);
 
     useEffect(() => {
@@ -85,10 +99,12 @@ export default function Pacientes() {
                                 <TableCell>{paciente.telefone}</TableCell>
                                 <TableCell>{paciente.cidade}</TableCell>
                                 <TableCell>
+                                <NavLink to={`/pacientes/${paciente.id}/editar`}>
                                     <IconButton color="primary" aria-label="editar">
                                         <Edit />
                                     </IconButton>
-                                    <IconButton color="error" aria-label="excluir">
+                                </NavLink>
+                                    <IconButton color="error" aria-label="excluir" onClick={()=>deletePaciente(paciente.id)}>
                                         <Delete />
                                     </IconButton>
                                 </TableCell>
